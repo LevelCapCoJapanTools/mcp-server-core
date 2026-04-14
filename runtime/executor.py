@@ -110,14 +110,14 @@ class Executor:
                     except concurrent.futures.TimeoutError:
                         future.cancel()
                         elapsed = time.monotonic() - start
+                        timeout_msg = (
+                            f"タイムアウト ({definition.timeout_seconds}s)"
+                            " を超過しました"
+                        )
                         result = ExecutionResult(
                             tool_name=tool_name,
                             status=ExecutionStatus.TIMEOUT,
-                            error_message=(
-                                "タイムアウト"
-                                f" ({definition.timeout_seconds}s)"
-                                " を超過しました"
-                            ),
+                            error_message=timeout_msg,
                             elapsed_seconds=elapsed,
                         )
                         log_execution(result)
