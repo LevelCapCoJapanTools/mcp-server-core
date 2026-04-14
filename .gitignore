@@ -2,3 +2,15 @@
 /docs/draft/**/*.md
 !/docs/draft/readme.md
 
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+.coverage
+htmlcov/
